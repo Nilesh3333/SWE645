@@ -32,7 +32,7 @@ pipeline {
         stage("Push image") {
             steps {
                 script {
-                	sh 'docker login -u NileshBommisetty -p Nilesh@123'
+                	sh 'docker login -u nileshbommisetty -p Nilesh@123'
 					myapp.push("${env.BUILD_ID}")
                 }
             }

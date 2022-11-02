@@ -1,36 +1,48 @@
 pipeline {
     agent any
-    tools {
-        maven '3.8.6'
+    environment {
+        PROJECT_ID = 'swe645hw2'
+        CLUSTER_NAME = 'swe645hw2'
+        LOCATION = 'us-east-1a'
     }
-    stages{
-        stage('Build Maven'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Nilesh3333/SWE645']]])
-                sh 'mvn clean install'
+    stages {
+        stage("Checkout code") {
+            steps {
+                checkout scm
             }
         }
-        stage('Build Docker Image'){
-            steps{
-                script{
-                    docker.build("nileshbommisetty/645:${env.BUILD_NUMBER}")
+        stage('BuildWAR') {
+            steps {
+            
+            	dir('src/main/webapp') {
+            		echo 'Creating the Jar ...'
+					sh 'java -version'
+					sh 'jar -cvf Assignment1_645.war *'
+            	}
+            }
+        }
+        
+        stage("Build image") {
+            steps {
+                script {
+                    myapp = docker.build("nileshbommisetty/645:${env.BUILD_ID}")
                 }
             }
         }
-        stage('Push Image To Hub'){
-            steps{
-                script{
-                    sh "docker login -u NileshBommisetty -p Nilesh@123"
-                    sh "docker push nileshbommisetty/645:${env.BUILD_NUMBER}"
-				}
-			}
-		}
-		stage("Deploying to Kubernetes"){
+        stage("Push image") {
+            steps {
+                script {
+                	sh 'docker login -u NileshBommisetty -p Nilesh@123'
+					myapp.push("${env.BUILD_ID}")
+                }
+            }
+        }        
+        stage("UpdateDeployment") {
 			steps{
-				script{
-					sh "kubectl set image deployment/assig2deplo container-0=nileshbommisetty/645:${env.BUILD_NUMBER}"
-				}
+				sh 'kubectl config view'
+				sh "kubectl get deployments"
+				sh "kubectl set image deployment/assig2deplo container-0=nileshbommisetty/645:${env.BUILD_ID}"
 			}
 		}
-	}
+    }    
 }

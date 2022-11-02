@@ -1,0 +1,147 @@
+<!--Name : Nilesh Bommisetty-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Survey Form</title>
+    <!--the browser will render the width of the page at the width of its own screen-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--font-awsome is used for icons at the end of the page like facebook,insta etc-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Link to external Style sheet-->
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" type="text/css" href="jquery-ui.css" />
+
+</head>
+
+<body style="background-color:#D3D3D3;">
+    <div class="box">
+        <div class="w3-row">
+            <!--w3-third	Occupies 1/3 of the window (on medium and large screens)-->
+            <div class="w3-third w3-container">
+                <a href="https://cs.gmu.edu/"><img src="mason-logo.png" alt="GMU Logo" width="175" height="100"></a>
+              </div>
+            <!--w3-twothird	Occupies 2/3 of the window (on medium and large screens)-->
+            <div class="w3-twothird w3-container">
+                <h1 id="gmu">George Mason University</h1>
+            </div>
+        </div>
+    </div><br>
+<!--w3-container: This class is used to add 16px padding on both the left and right side of the element.-->
+<div class="w3-container">
+    <div class="SurveyBox">
+        <h2>Student Survey Form</h2>
+    </div> <br>
+    <form id = "form" autocomplete="on">
+        <div>
+            <label>First Name <span class="required">*</span> :</label>
+            <input type="text" id="First_Name" name="First_Name" placeholder="Nilesh" autofocus="on" required><br><br>
+            <label>Last Name <span class="required">*</span> :</label>
+            <input type="text" id="Last_Name" name="Last_Name" placeholder="Bommisetty" autofocus="on" required><br><br>
+            <label>Street Address <span class="required">*</span> :</label>
+            <input type="text" id="Street_Address" placeholder="4313 Ramona Dr" name="Street_Address" required><br><br>
+            <label>City <span class="required">*</span> :</label>
+            <input type="text" id="City" name="City" placeholder="FairFax" name="City" required><br><br>
+            <label>State <span class="required">*</span> :</label>
+            <input type="text" id="State" name="State" placeholder="Virginia" name="State" required><br><br>
+            <label>Zip <span class="required">*</span> :</label>
+            <input type="number" id="Zip" name="Zip" placeholder="22030" name="Zip" required><br><br>
+            <label>TelePhone Number <span class="required">*</span> :</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="1234567890" required><br><br>
+            <label>Email <span class="required">*</span> :</label>
+            <input type="email" id="email" name="email" placeholder="abc@gmu.edu" required><br><br>
+            <label>Date of Survey <span class="required">*</span> :</label>
+            <input type="date" id="Date" name="Date" required><br><br>
+        </div>
+
+        <div>
+            <h3>Please select the checkboxs which you liked the most about the campus</h3>
+            <input type="checkbox" id="students" name="checkbox" value="students">
+            <label for="students"> Students</label><br>
+            <input type="checkbox" id="location" name="checkbox" value="location">
+            <label for="location"> Location</label><br>
+            <input type="checkbox" id="campus" name="checkbox" value="campus">
+            <label for="campus">Campus</label><br>
+            <input type="checkbox" id="atmosphere" name="checkbox" value="atmosphere">
+            <label for="atmosphere"> Atmosphere</label><br>
+            <input type="checkbox" id="Dorm_Rooms" name="checkbox" value="Dorm_Rooms">
+            <label for="Dorm_Rooms"> Dorm Rooms</label><br>
+            <input type="checkbox" id="sports" name="checkbox" value="sports">
+            <label for="sports"> Sports</label>
+        </div>
+        
+        <div>
+            <h3>Please select the option which makes you intrested in the University</h3>
+            <input type="radio" id="friends" name="intrested" value="friends">
+            <label for="friends">Friends</label><br>
+            <input type="radio" id="television" name="intrested" value="television">
+            <label for="television">Television</label><br>
+            <input type="radio" id="Internet" name="intrested" value="Internet">
+            <label for="Internet">Internet</label><br>
+            <input type="radio" id="other" name="intrested" value="other">
+            <label for="other">Other</label> <br><br>
+        </div>
+
+        <div>
+            <label>How likely will you recommend this school to other prospective students <span class="required">*</span> : </label>
+            <select name="recommend" id="recommend">
+                <option value="Very_Likely">Very Likely</option>
+                <option value="Likely">Likely</option>
+                <option value="Unlikely">Unlikely</option>
+            </select>
+            <br><br><br>
+        </div>
+
+        <div>
+            <label for="Raffle">Raffle:</label>
+            <input type="text" id="Raffle" name="Raffle" onblur="calculate(this.value);" placeholder="Enter atleast ten comma separated numbers ranging from 1 through 100 in the Raffle field" style="width :50%">
+        </div><br><br>
+
+        <label for="Comments">Comments:</label>
+        <div>
+            <textarea name="message" rows="10" cols="30" placeholder="Additional Comments"></textarea> <br><br><br>
+            <div class="w3-row">
+                <div class="w3-container w3-quarter" style=padding-left:20%>
+                    <input type="submit">
+                </div>
+                <div class="w3-container w3-quarter" style=padding-left:5%>
+                    <input type="reset"> <br><br>
+                </div>
+              </div> 
+        </div>
+
+    </form>
+</div>
+<footer id="footer" class="w3-row">
+    <!--w3-threequarter	Occupies 3/4 of the window (on medium and large screens)-->
+    <div class="w3-threequarter w3-container">
+        <div id="social" class="row">
+            <div class="column">
+                <a href="http://facebook.com/georgemason" id="facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
+            </div>
+            <div class="column">
+                <a href="http://www.youtube.com/user/masonWeb" id="youtube"><i class="fa fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span></a>
+            </div>
+            <div class="column">
+                <a href="https://instagram.com/georgemasonu" id="instagram"><i class="fa fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
+            </div>
+            <div class="column">
+                <a href="https://www.linkedin.com/edu/school?id=19576" id="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+            </div>
+            <div class="column">
+                <a href="https://www.pinterest.com/georgemasonuniv" id="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>
+            </div>
+        </div>
+        <div id="foot-bottom">
+                <p class="address">© 2021-2022 George Mason University. 4400 University Drive, Fairfax, Virginia 22030</p>
+        </div>
+    </div>    
+    <!--w3-quarter	Occupies 1/4 of the window (on medium and large screens)--> 
+    <div class="w3-quarter w3-container FixedImage" style="padding-left:60px ;">
+        <a href="https://cs.gmu.edu/"><img src="mason-logo.png" alt="George Mason University" /></a>
+    </div>  
+</footer>
+
+</body>
+</html>
+

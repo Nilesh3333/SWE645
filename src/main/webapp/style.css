@@ -1,0 +1,94 @@
+
+            /*for the 1st time the link will be in blue color*/
+            .feedback a:link {
+                color: blue;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            /*whenever we visited the hyperlink the color will turns to red*/
+            .feedback a:visited {
+                color: red ;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            table {
+                border: 1px solid black;     
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                padding: 8px;
+                text-align: center;
+                border-bottom: 1px solid #DDD;
+            }
+            th{
+                color: white;
+                background-color:#006633;
+            }
+            
+            tr:hover {background-color: #D6EEEE;}
+            .box{
+                color: white;
+                background-color:#006633;
+                padding: 1%;
+                border: 5px solid #006633 ;
+                height: 150px;
+                box-shadow: 5px 8px #FFCC33;
+            }
+            #gmu{
+                padding: 2%;
+                color: white;
+            }
+            #footer{
+            background-color: #006633;
+            }  
+            #social{
+                padding-left: 150px;
+            }
+            .column {
+                float: left;
+                width: 10%;
+                padding-top: 60px;
+                padding-left: 50px;
+                padding-bottom: 15px;
+                }
+
+            /* Clearfix (clear floats) */
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+                }
+            .fa{
+                font-size: 2em !important;
+                color: #FFCC33;
+            }
+            .address{
+                padding-left: 17%;
+                color: #FFCC33;
+            }
+
+
+            .required {
+                color: red;
+            }
+
+            div.FixedImage{
+                position: fixed;
+                bottom: 0;
+                right: 5%;
+                width: 300px;
+            }
+
+            .SurveyBox{
+                color: black;
+                padding: 5px;
+                border: 5px solid #006633 ;
+                height: 75px;
+                text-align: center;
+                box-shadow: 5px 5px #FFCC33;
+            }
+
+            body{
+                font-style: normal;
+           }

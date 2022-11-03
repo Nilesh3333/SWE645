@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'swe645hw2'
-        CLUSTER_NAME = 'swe645hw2'
+        PROJECT_ID = 'Assig2'
+        CLUSTER_NAME = 'assig2clus'
         LOCATION = 'us-east-1a'
     }
     stages {
